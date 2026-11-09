@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="F Klavye Öğretmen">
 <meta name="mobile-web-app-capable" content="yes">
-<title>F Klavye Öğretmen (v8)</title>
+<title>F Klavye Öğretmen (v9)</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230f766e%22/%3E%3Crect%20x%3D%227%22%20y%3D%2219%22%20width%3D%2250%22%20height%3D%2230%22%20rx%3D%225%22%20fill%3D%22%23fff%22/%3E%3Cg%20fill%3D%22%230f766e%22%3E%3Crect%20x%3D%2212%22%20y%3D%2224%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2221%22%20y%3D%2224%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2230%22%20y%3D%2224%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2239%22%20y%3D%2224%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2248%22%20y%3D%2224%22%20width%3D%225%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2233%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2221%22%20y%3D%2233%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2230%22%20y%3D%2233%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2239%22%20y%3D%2233%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2248%22%20y%3D%2233%22%20width%3D%225%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2217%22%20y%3D%2242%22%20width%3D%2230%22%20height%3D%224%22%20rx%3D%221%22/%3E%3C/g%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="manifest" href="manifest.webmanifest">
@@ -256,12 +256,12 @@ th{position:sticky;top:0;background:var(--card);z-index:1}
 <body>
 <!-- GİRİŞ -->
 <section id="scLogin" class="screen on">
-  <div class="topbar"><h1>⌨️ F Klavye Öğretmen Uygulaması</h1><span class="sp"></span><span class="muted" style="font-size:.7rem"><b style="color:#14b8a6">Sürüm v8 (Öğretmen)</b></span>
+  <div class="topbar"><h1>⌨️ F Klavye Öğretmen Uygulaması</h1><span class="sp"></span><span class="muted" style="font-size:.7rem"><b style="color:#14b8a6">Sürüm v9 (Öğretmen)</b></span>
     <button class="iconbtn" id="btnTheme" title="Koyu / açık tema">🌓</button>
     <button class="iconbtn" id="btnTeacher0" title="Öğretmen paneli">🔒</button></div>
   <div class="center">
     <div class="card">
-      <div class="ogretmen-hizli-bar"><div><b>📋 F Klavye Öğretmen Sürümü <span style="background:#fff;color:#0f766e;padding:1px 7px;border-radius:99px;font-size:.75rem;margin-left:4px">v8</span></b><div style="font-size:.8rem;opacity:.9">Sınav karekodlarını okutmak, sonuçları görmek ve çıktı almak için dokunun</div></div><div style="display:flex;gap:.45rem;flex-wrap:wrap"><button type="button" id="btnOgretmenCacheSil" style="background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.4)">🔄 Güncelle</button><button type="button" id="btnOgretmenHizli">🖨️ Sınav & Karekod Paneli</button></div></div><h2>Merhaba! Kimsin?</h2>
+      <div class="ogretmen-hizli-bar"><div><b>📋 F Klavye Öğretmen Sürümü <span style="background:#fff;color:#0f766e;padding:1px 7px;border-radius:99px;font-size:.75rem;margin-left:4px">v9</span></b><div style="font-size:.8rem;opacity:.9">Sınav karekodlarını okutmak, sonuçları görmek ve çıktı almak için dokunun</div></div><div style="display:flex;gap:.45rem;flex-wrap:wrap"><button type="button" id="btnOgretmenCacheSil" style="background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.4)">🔄 Güncelle</button><button type="button" id="btnOgretmenHizli">🖨️ Sınav & Karekod Paneli</button></div></div><h2>Merhaba! Kimsin?</h2>
       <div class="muted">Adını yaz ya da daha önce çalışan öğrencilerden kendini seç.</div>
       <div class="students" id="studentList"></div>
       <label class="f" for="inName">Ad Soyad</label>
@@ -4593,20 +4593,20 @@ if(!window.__KLV_ART)KBL.baslat();
       html,body{width:210mm;background:#fff}
       .pg{width:100%;min-height:268mm;max-height:275mm;overflow:hidden}
     }
-    h2{font-size:12pt;margin:0 0 2pt;text-align:center;letter-spacing:.2px;line-height:1.25}
-    h3{font-size:10.5pt;margin:0 0 6pt;text-align:center;line-height:1.25}
-    h4{font-size:9.5pt;margin:6pt 0 2.5pt;line-height:1.25}
-    table{border-collapse:separate;border-spacing:0;width:100%;margin-bottom:4pt;table-layout:fixed;border-top:1px solid #000;border-left:1px solid #000}
-    td,th{position:static;border-top:0;border-left:0;border-right:1px solid #000;border-bottom:1px solid #000;padding:3.2pt 6pt;vertical-align:middle;word-break:break-word;line-height:1.25}
-    table.kompakt-ust td.lbl{background:#f1f5f9;width:22%;font-weight:bold;font-size:9.5pt}
-    table.kompakt-ust td.val{width:28%;font-size:10pt}
-    table.kompakt-ust td.puan-lbl{background:#e2e8f0;font-weight:bold;font-size:10pt}
-    table.kompakt-ust td.puan-val{font-size:11.5pt;background:#f8fafc}
-    .ozet-satir{font-size:9pt;margin:3pt 0 5pt;padding:3pt 6pt;background:#f8fafc;border:1px solid #94a3b8;line-height:1.25}
-    .mono{font-family:'Courier New',Courier,monospace;font-size:9.2pt;line-height:1.3;border:1px solid #000;padding:5pt 7pt;white-space:pre-wrap;word-break:break-word;width:100%;max-height:999999px}
+    h2{font-size:13pt;margin:0 0 3pt;text-align:center;letter-spacing:.2px;line-height:1.25}
+    h3{font-size:11pt;margin:0 0 8pt;text-align:center;line-height:1.25}
+    h4{font-size:10.5pt;margin:9pt 0 3.5pt;line-height:1.28}
+    table{border-collapse:separate;border-spacing:0;width:100%;margin-bottom:5pt;table-layout:fixed;border-top:1px solid #000;border-left:1px solid #000}
+    td,th{position:static;border-top:0;border-left:0;border-right:1px solid #000;border-bottom:1px solid #000;padding:4pt 7pt;vertical-align:middle;word-break:break-word;line-height:1.25}
+    table.kompakt-ust td.lbl{background:#f1f5f9;width:22%;font-weight:bold;font-size:10pt}
+    table.kompakt-ust td.val{width:28%;font-size:10.5pt}
+    table.kompakt-ust td.puan-lbl{background:#e2e8f0;font-weight:bold;font-size:10.5pt}
+    table.kompakt-ust td.puan-val{font-size:12.5pt;background:#f8fafc}
+    .ozet-satir{font-size:9.5pt;margin:4pt 0 7pt;padding:4pt 7pt;background:#f8fafc;border:1px solid #94a3b8;line-height:1.28}
+    .mono{font-family:'Courier New',Courier,monospace;font-size:11.2pt;line-height:1.46;border:1px solid #000;padding:7.5pt 9.5pt;white-space:pre-wrap;word-break:break-word;width:100%;max-height:999999px}
     u.e{text-decoration:underline;font-weight:bold}
     table.br{width:100%;font-size:8pt;table-layout:fixed}
-    .cov .mono{font-size:9pt;line-height:1.32}
+    .cov .mono{font-size:9pt;line-height:1.32;padding:5pt 7pt}
     .cov table.br{font-size:7pt}
     .cov table.br td,.cov table.br th{padding:0.5pt 3pt;line-height:1.15}
     .cov h4{margin:6pt 0 2.5pt}
@@ -4614,7 +4614,7 @@ if(!window.__KLV_ART)KBL.baslat();
     table.br th{background:#eee;position:static}
     table.br .hl{font-weight:bold;background:#cbd5e1}
     .br{page-break-inside:avoid}
-    .sm{font-size:8pt;font-weight:normal;color:#333}
+    .sm{font-size:8.5pt;font-weight:normal;color:#333}
     </style></head><body>${(gosterKapak && recs && recs.length) ? sinavKapak(recs, true) : ''}${recs.map(r => sinavRaporBlok(r)).join('')}</body></html>`;
   };
 
@@ -4678,19 +4678,20 @@ if(!window.__KLV_ART)KBL.baslat();
         '.html2pdf__container{position:relative !important;left:0 !important;top:0 !important;right:auto !important;margin:0 !important;width:700px !important;height:auto !important;overflow:visible !important;background:#fff !important;-webkit-text-size-adjust:none !important;text-size-adjust:none !important}\n' +
         '.pg{width:700px !important;max-width:700px !important;min-height:260mm !important;max-height:275mm !important;padding:4px 8px !important;margin:0 !important;box-shadow:none !important;background:#fff !important;color:#000 !important;overflow:hidden !important;box-sizing:border-box !important;-webkit-text-size-adjust:none !important;text-size-adjust:none !important}\n' +
         '.pg *{-webkit-text-size-adjust:none !important;text-size-adjust:none !important;max-height:999999px !important}\n' +
-        '.pg h2{font-size:16px !important;margin:0 0 3px !important;text-align:center !important;line-height:1.25 !important;color:#000 !important}\n' +
-        '.pg h3{font-size:14px !important;margin:0 0 8px !important;text-align:center !important;line-height:1.25 !important;color:#000 !important}\n' +
-        '.pg h4{font-size:12.5px !important;margin:8px 0 3px !important;line-height:1.25 !important;color:#000 !important}\n' +
-        '.pg .sm{font-size:10.5px !important;font-weight:normal !important;color:#333 !important}\n' +
-        '.pg table{border-collapse:separate !important;border-spacing:0 !important;width:100% !important;margin-bottom:5px !important;table-layout:fixed !important;border-top:1px solid #000 !important;border-left:1px solid #000 !important;border-right:0 !important;border-bottom:0 !important}\n' +
-        '.pg td,.pg th{position:static !important;border-top:0 !important;border-left:0 !important;border-right:1px solid #000 !important;border-bottom:1px solid #000 !important;padding:4px 8px !important;vertical-align:middle !important;color:#000 !important;line-height:1.25 !important}\n' +
-        '.pg table.kompakt-ust td.lbl{background:#f1f5f9 !important;width:22% !important;font-weight:bold !important;font-size:12.5px !important}\n' +
-        '.pg table.kompakt-ust td.val{width:28% !important;font-size:13px !important}\n' +
-        '.pg table.kompakt-ust td.puan-lbl{background:#e2e8f0 !important;font-weight:bold !important;font-size:13px !important}\n' +
-        '.pg table.kompakt-ust td.puan-val{font-size:15px !important;background:#f8fafc !important}\n' +
-        '.pg .ozet-satir{font-size:12px !important;margin:4px 0 6px !important;padding:4px 8px !important;background:#f8fafc !important;border:1px solid #94a3b8 !important;line-height:1.25 !important;color:#000 !important}\n' +
-        '.pg .mono{font-family:"Courier New",Courier,monospace !important;font-size:12px !important;line-height:1.3 !important;border:1px solid #000 !important;padding:6px 9px !important;white-space:pre-wrap !important;word-break:break-word !important;width:100% !important;color:#000 !important;background:#fff !important;letter-spacing:0 !important}\n' +
-        '.pg.cov .mono{font-size:11.5px !important;line-height:1.28 !important}\n' +
+        '.pg h2{font-size:17.5px !important;margin:0 0 4px !important;text-align:center !important;line-height:1.25 !important;color:#000 !important}\n' +
+        '.pg h3{font-size:15px !important;margin:0 0 10px !important;text-align:center !important;line-height:1.25 !important;color:#000 !important}\n' +
+        '.pg h4{font-size:14px !important;margin:12px 0 5px !important;line-height:1.28 !important;color:#000 !important}\n' +
+        '.pg .sm{font-size:11.5px !important;font-weight:normal !important;color:#333 !important}\n' +
+        '.pg table{border-collapse:separate !important;border-spacing:0 !important;width:100% !important;margin-bottom:6px !important;table-layout:fixed !important;border-top:1px solid #000 !important;border-left:1px solid #000 !important;border-right:0 !important;border-bottom:0 !important}\n' +
+        '.pg td,.pg th{position:static !important;border-top:0 !important;border-left:0 !important;border-right:1px solid #000 !important;border-bottom:1px solid #000 !important;padding:5.5px 9px !important;vertical-align:middle !important;color:#000 !important;line-height:1.28 !important}\n' +
+        '.pg table.kompakt-ust td.lbl{background:#f1f5f9 !important;width:22% !important;font-weight:bold !important;font-size:13.5px !important}\n' +
+        '.pg table.kompakt-ust td.val{width:28% !important;font-size:14px !important}\n' +
+        '.pg table.kompakt-ust td.puan-lbl{background:#e2e8f0 !important;font-weight:bold !important;font-size:14px !important}\n' +
+        '.pg table.kompakt-ust td.puan-val{font-size:16.5px !important;background:#f8fafc !important}\n' +
+        '.pg .ozet-satir{font-size:13px !important;margin:5px 0 9px !important;padding:5px 9px !important;background:#f8fafc !important;border:1px solid #94a3b8 !important;line-height:1.28 !important;color:#000 !important}\n' +
+        '.pg .mono{font-family:"Courier New",Courier,monospace !important;font-size:15px !important;line-height:1.46 !important;border:1px solid #000 !important;padding:10px 12px !important;white-space:pre-wrap !important;word-break:break-word !important;width:100% !important;color:#000 !important;background:#fff !important;letter-spacing:0 !important}\n' +
+        '.pg.cov h4{margin:7px 0 3px !important;font-size:13px !important}\n' +
+        '.pg.cov .mono{font-size:11.5px !important;line-height:1.28 !important;padding:6px 9px !important}\n' +
         '.pg table.br{font-size:10px !important;table-layout:fixed !important}\n' +
         '.pg.cov table.br{font-size:9.2px !important}\n' +
         '.pg.cov table.br td,.pg.cov table.br th{padding:1px 3px !important;text-align:center !important;line-height:1.15 !important}\n' +
@@ -5303,11 +5304,11 @@ if(!window.__KLV_ART)KBL.baslat();
 <script>
 if('caches' in window){
   caches.keys().then(function(ks){
-    ks.forEach(function(k){ if(k !== 'klv-ogretmen-v8') caches.delete(k); });
+    ks.forEach(function(k){ if(k !== 'klv-ogretmen-v9') caches.delete(k); });
   }).catch(function(){});
 }
 if('serviceWorker' in navigator && location.protocol.indexOf('http')===0){
-  navigator.serviceWorker.register('sw.js?v=8', {updateViaCache:'none'}).then(function(reg){
+  navigator.serviceWorker.register('sw.js?v=9', {updateViaCache:'none'}).then(function(reg){
     try{ reg.update(); }catch(e){}
   }).catch(function(){});
 }
