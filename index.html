@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="F Klavye Öğretmen">
 <meta name="mobile-web-app-capable" content="yes">
-<title>F Klavye Öğretmen (v6)</title>
+<title>F Klavye Öğretmen (v7)</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230f766e%22/%3E%3Crect%20x%3D%227%22%20y%3D%2219%22%20width%3D%2250%22%20height%3D%2230%22%20rx%3D%225%22%20fill%3D%22%23fff%22/%3E%3Cg%20fill%3D%22%230f766e%22%3E%3Crect%20x%3D%2212%22%20y%3D%2224%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2221%22%20y%3D%2224%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2230%22%20y%3D%2224%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2239%22%20y%3D%2224%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2248%22%20y%3D%2224%22%20width%3D%225%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2233%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2221%22%20y%3D%2233%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2230%22%20y%3D%2233%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2239%22%20y%3D%2233%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2248%22%20y%3D%2233%22%20width%3D%225%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2217%22%20y%3D%2242%22%20width%3D%2230%22%20height%3D%224%22%20rx%3D%221%22/%3E%3C/g%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="manifest" href="manifest.webmanifest">
@@ -218,6 +218,8 @@ th{position:sticky;top:0;background:var(--card);z-index:1}
 .qr-zoom-bar{display:flex;align-items:center;gap:.4rem;margin-top:.45rem;flex-wrap:wrap}
 .qr-zoom-btn{padding:.28rem .65rem;border-radius:.4rem;border:1px solid #0d9488;background:#fff;color:#0f766e;font-weight:700;font-size:.8rem;cursor:pointer}
 .qr-zoom-btn.on{background:#0f766e;color:#fff}
+.html2pdf__overlay{position:fixed !important;left:0 !important;top:0 !important;right:auto !important;bottom:auto !important;width:186mm !important;height:auto !important;overflow:visible !important;z-index:-9999 !important;opacity:0 !important;pointer-events:none !important}
+.html2pdf__container{position:relative !important;left:0 !important;top:0 !important;right:auto !important;margin:0 !important;width:186mm !important;height:auto !important;overflow:visible !important;background:#fff !important}
 #klvPrintOverlay{display:none}
 @media print{
   @page{size:210mm 297mm;margin:12mm}
@@ -253,12 +255,12 @@ th{position:sticky;top:0;background:var(--card);z-index:1}
 <body>
 <!-- GİRİŞ -->
 <section id="scLogin" class="screen on">
-  <div class="topbar"><h1>⌨️ F Klavye Öğretmen Uygulaması</h1><span class="sp"></span><span class="muted" style="font-size:.7rem"><b style="color:#14b8a6">Sürüm v6 (Öğretmen)</b></span>
+  <div class="topbar"><h1>⌨️ F Klavye Öğretmen Uygulaması</h1><span class="sp"></span><span class="muted" style="font-size:.7rem"><b style="color:#14b8a6">Sürüm v7 (Öğretmen)</b></span>
     <button class="iconbtn" id="btnTheme" title="Koyu / açık tema">🌓</button>
     <button class="iconbtn" id="btnTeacher0" title="Öğretmen paneli">🔒</button></div>
   <div class="center">
     <div class="card">
-      <div class="ogretmen-hizli-bar"><div><b>📋 F Klavye Öğretmen Sürümü <span style="background:#fff;color:#0f766e;padding:1px 7px;border-radius:99px;font-size:.75rem;margin-left:4px">v6</span></b><div style="font-size:.8rem;opacity:.9">Sınav karekodlarını okutmak, sonuçları görmek ve çıktı almak için dokunun</div></div><div style="display:flex;gap:.45rem;flex-wrap:wrap"><button type="button" id="btnOgretmenCacheSil" style="background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.4)">🔄 Güncelle</button><button type="button" id="btnOgretmenHizli">🖨️ Sınav & Karekod Paneli</button></div></div><h2>Merhaba! Kimsin?</h2>
+      <div class="ogretmen-hizli-bar"><div><b>📋 F Klavye Öğretmen Sürümü <span style="background:#fff;color:#0f766e;padding:1px 7px;border-radius:99px;font-size:.75rem;margin-left:4px">v7</span></b><div style="font-size:.8rem;opacity:.9">Sınav karekodlarını okutmak, sonuçları görmek ve çıktı almak için dokunun</div></div><div style="display:flex;gap:.45rem;flex-wrap:wrap"><button type="button" id="btnOgretmenCacheSil" style="background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.4)">🔄 Güncelle</button><button type="button" id="btnOgretmenHizli">🖨️ Sınav & Karekod Paneli</button></div></div><h2>Merhaba! Kimsin?</h2>
       <div class="muted">Adını yaz ya da daha önce çalışan öğrencilerden kendini seç.</div>
       <div class="students" id="studentList"></div>
       <label class="f" for="inName">Ad Soyad</label>
@@ -4577,41 +4579,41 @@ if(!window.__KLV_ART)KBL.baslat();
     /* kapakDahil belirtilmemişse: toplu çıktıda (recs.length > 1) ilk sayfaya Sınav Metni ve Not Baremi otomatik konur */
     const gosterKapak = (kapakDahil !== undefined) ? !!kapakDahil : (recs && recs.length > 1);
     return `<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8"><title>${esc(title||'Sınav Sonucu')}</title><style>
-    @page{size:210mm 297mm;margin:12mm}
+    @page{size:210mm 297mm;margin:10mm 12mm}
     *{box-sizing:border-box;-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
-    body{font-family:Arial,Helvetica,sans-serif;color:#000;font-size:10.5pt;margin:0;padding:0;background:#fff}
+    body{font-family:Arial,Helvetica,sans-serif;color:#000;font-size:10pt;margin:0;padding:0;background:#fff}
     .pg{width:100%;page-break-after:always;page-break-inside:avoid; break-after:page; break-inside:avoid}
     .pg:last-child{page-break-after:auto; break-after:auto}
     @media screen{
       body{background:#cbd5e1;padding:16px 0}
-      .pg{width:210mm;min-height:297mm;padding:14mm 15mm;margin:0 auto 18px auto;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,0.18);border-radius:4px}
+      .pg{width:210mm;min-height:297mm;padding:10mm 12mm;margin:0 auto 18px auto;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,0.18);border-radius:4px}
     }
     @media print{
       html,body{width:210mm;background:#fff}
-      .pg{width:100%;min-height:268mm;max-height:272mm;overflow:hidden}
+      .pg{width:100%;min-height:268mm;max-height:275mm;overflow:hidden}
     }
-    h2{font-size:13pt;margin:0 0 3pt;text-align:center;letter-spacing:.2px}
-    h3{font-size:11pt;margin:0 0 10pt;text-align:center}
-    h4{font-size:10.5pt;margin:10pt 0 4pt}
-    table{border-collapse:collapse;width:100%;margin-bottom:6pt}
-    td{border:1px solid #000;padding:4.5pt 8pt;vertical-align:middle}
-    table.kompakt-ust td.lbl{background:#f1f5f9;width:23%;font-weight:bold;font-size:10pt}
-    table.kompakt-ust td.val{width:27%;font-size:10.5pt}
-    table.kompakt-ust td.puan-lbl{background:#e2e8f0;font-weight:bold;font-size:10.5pt}
-    table.kompakt-ust td.puan-val{font-size:13pt;background:#f8fafc}
-    .ozet-satir{font-size:9.5pt;margin:4pt 0 8pt;padding:4pt 8pt;background:#f8fafc;border:1px solid #94a3b8}
-    .mono{font-family:'Courier New',Courier,monospace;font-size:10.5pt;line-height:1.48;border:1px solid #000;padding:7pt 9pt;white-space:pre-wrap;word-break:break-word}
+    h2{font-size:12pt;margin:0 0 2pt;text-align:center;letter-spacing:.2px}
+    h3{font-size:10.5pt;margin:0 0 6pt;text-align:center}
+    h4{font-size:9.5pt;margin:6pt 0 2.5pt}
+    table{border-collapse:collapse;width:100%;margin-bottom:4pt;table-layout:fixed}
+    td{border:1px solid #000;padding:3.2pt 6pt;vertical-align:middle;word-break:break-word}
+    table.kompakt-ust td.lbl{background:#f1f5f9;width:22%;font-weight:bold;font-size:9.5pt}
+    table.kompakt-ust td.val{width:28%;font-size:10pt}
+    table.kompakt-ust td.puan-lbl{background:#e2e8f0;font-weight:bold;font-size:10pt}
+    table.kompakt-ust td.puan-val{font-size:12pt;background:#f8fafc}
+    .ozet-satir{font-size:9pt;margin:3pt 0 5pt;padding:3pt 6pt;background:#f8fafc;border:1px solid #94a3b8}
+    .mono{font-family:'Courier New',Courier,monospace;font-size:9.2pt;line-height:1.3;border:1px solid #000;padding:5pt 7pt;white-space:pre-wrap;word-break:break-word;width:100%}
     u.e{text-decoration:underline;font-weight:bold}
-    table.br{width:100%;font-size:8pt}
-    .cov .mono{font-size:9pt;line-height:1.35}
+    table.br{width:100%;font-size:8pt;table-layout:auto}
+    .cov .mono{font-size:9pt;line-height:1.32}
     .cov table.br{font-size:7pt}
-    .cov table.br td,.cov table.br th{padding:0 4pt}
-    .cov h4{margin:7pt 0 3pt}
-    table.br td,table.br th{padding:1pt 4pt;text-align:center;border:1px solid #000}
+    .cov table.br td,.cov table.br th{padding:0 3pt}
+    .cov h4{margin:6pt 0 2.5pt}
+    table.br td,table.br th{padding:1pt 3pt;text-align:center;border:1px solid #000}
     table.br th{background:#eee}
     table.br .hl{font-weight:bold;border:2px solid #000;background:#ddd}
     .br{page-break-inside:avoid}
-    .sm{font-size:8.5pt;font-weight:normal;color:#333}
+    .sm{font-size:8pt;font-weight:normal;color:#333}
     </style></head><body>${(gosterKapak && recs && recs.length) ? sinavKapak(recs, true) : ''}${recs.map(r => sinavRaporBlok(r)).join('')}</body></html>`;
   };
 
@@ -4644,7 +4646,9 @@ if(!window.__KLV_ART)KBL.baslat();
     setTimeout(cleanup, 2000);
   };
 
-  /* Sayfa Sayfa PDF Üretici: 26+ öğrencide canvas sınırına takılıp boş PDF çıkmasını %100 önler */
+  /* Sayfa Sayfa PDF Üretici:
+     - 26+ öğrencide canvas sınırına takılıp boş PDF çıkmasını %100 önler.
+     - Telefon ekranlarında (iPhone/Android) sağ kenarın veya 2. uygulamanın alt kısmının kesilmesini %100 önler. */
   sinavPdf = window.sinavPdf = async function(recs, fn, sadeceKapak, kapakDahil){
     const msg = t => { const e = document.getElementById('snMsg'); if(e) e.textContent = t; };
     let host = null;
@@ -4660,9 +4664,14 @@ if(!window.__KLV_ART)KBL.baslat();
       const doc = new DOMParser().parseFromString(html, 'text/html');
       const st = doc.querySelector('style');
       host = document.createElement('div');
-      host.style.cssText = 'position:fixed;left:0;top:0;z-index:-9999;opacity:0.01;pointer-events:none;width:186mm;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif;font-size:10.5pt';
-      const cleanCss = st ? st.textContent.replace(/@page[^}]*}/g,'').replace(/@media\s+screen\s*\{[\s\S]*?\}\s*\}/g,'').replace(/body\{[^}]*\}/g,'') : '';
-      host.innerHTML = '<style>' + cleanCss + '\n.pg{width:186mm !important;min-height:268mm !important;max-height:270mm !important;padding:2mm !important;margin:0 !important;box-shadow:none !important;background:#fff !important;overflow:hidden !important}</style><div id="klvPdfRoot" style="width:186mm;background:#fff;color:#000">' + doc.body.innerHTML + '</div>';
+      host.style.cssText = 'position:fixed;left:0;top:0;z-index:-9999;opacity:0.01;pointer-events:none;width:186mm;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif;font-size:10pt';
+      const cleanCss = st ? st.textContent.replace(/@page[^}]*}/g,'').replace(/@media\s+screen\s*\{[\s\S]*?\}\s*\}/g,'').replace(/@media\s+print\s*\{[\s\S]*?\}\s*\}/g,'').replace(/body\{[^}]*\}/g,'') : '';
+      host.innerHTML = '<style>' + cleanCss + '\n' +
+        '.html2pdf__overlay{position:fixed !important;left:0 !important;top:0 !important;right:auto !important;bottom:auto !important;width:186mm !important;height:auto !important;overflow:visible !important}\n' +
+        '.html2pdf__container{position:relative !important;left:0 !important;top:0 !important;right:auto !important;margin:0 !important;width:186mm !important;height:auto !important;overflow:visible !important;background:#fff !important}\n' +
+        '.pg{width:100% !important;max-width:100% !important;min-height:268mm !important;max-height:275mm !important;padding:1mm 2mm !important;margin:0 !important;box-shadow:none !important;background:#fff !important;color:#000 !important;overflow:hidden !important;box-sizing:border-box !important}\n' +
+        '.pg *{color:#000}\n' +
+        '</style><div id="klvPdfRoot" style="width:186mm;background:#fff;color:#000">' + doc.body.innerHTML + '</div>';
       document.body.appendChild(host);
 
       const pages = Array.from(host.querySelectorAll('#klvPdfRoot .pg'));
@@ -4671,7 +4680,7 @@ if(!window.__KLV_ART)KBL.baslat();
       const opt = {
         margin: [10, 12, 10, 12],
         image: {type:'jpeg', quality:0.95},
-        html2canvas: {scale:2, useCORS:true, backgroundColor:'#ffffff', scrollY:0, windowWidth:794},
+        html2canvas: {scale:2, useCORS:true, backgroundColor:'#ffffff', scrollX:0, scrollY:0, windowWidth:794, windowHeight:1200},
         jsPDF: {unit:'mm', format:'a4', orientation:'portrait'}
       };
 
@@ -4985,7 +4994,6 @@ if(!window.__KLV_ART)KBL.baslat();
     const avgEl = document.getElementById('snAvgSpan'); if(avgEl) avgEl.textContent = ortYeni;
     const hdrEl = document.getElementById('snHeaderCount'); if(hdrEl) hdrEl.textContent = `Sınav Sonuçları (${res.length} Öğrenci)`;
     const pdfBtn = document.getElementById('snAllPdfDl'); if(pdfBtn) pdfBtn.textContent = `📥 Tümünü PDF İndir (${res.length} Kişi)`;
-    const prtBtn = document.getElementById('snAllPrint'); if(prtBtn) prtBtn.textContent = `🖨️ Tümünü Yazdır (${res.length} Kişi)`;
 
     tbody.innerHTML = window.sinavTabloSatirlariHTML(res, ay);
     window.sinavTabloBagla(T, document.getElementById('pnBody'), res);
@@ -5022,9 +5030,7 @@ if(!window.__KLV_ART)KBL.baslat();
         <td>${b.netC}</td>
         <td><b style="font-size:1.1rem;color:#0f766e">${b.puan}</b></td>
         <td>
-          <button class="btn small ghost" data-pdf-dl="${r.id}">📥 PDF</button>
-          <button class="btn small ghost" data-print="${r.id}">🖨️ Yazdır</button>
-          <button class="btn small ghost" data-doc="${r.id}">Word</button>
+          <button class="btn small ghost" data-pdf-dl="${r.id}">📥 PDF İndir</button>
         </td>
       </tr>`;
     }).join('');
@@ -5044,16 +5050,6 @@ if(!window.__KLV_ART)KBL.baslat();
     body.querySelectorAll('[data-pdf-dl]').forEach(b => b.onclick = () => {
       const r = res.find(x => String(x.id) === b.dataset.pdfDl);
       if(r) window.sinavPdf([r], 'Sinav_' + r.ad, false, false);
-    });
-    body.querySelectorAll('[data-print]').forEach(b => b.onclick = () => {
-      const r = res.find(x => String(x.id) === b.dataset.print);
-      if(r) window.sinavDogrudanYazdir([r], 'Sinav_' + r.ad, false, false);
-    });
-    body.querySelectorAll('[data-doc]').forEach(b => b.onclick = () => {
-      const r = res.find(x => String(x.id) === b.dataset.doc);
-      if(!r) return;
-      const h = sinavRaporHtml([r], 'Sinav_'+r.ad, false).replace('<html lang="tr">','<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" lang="tr">');
-      dlFile(sinavDosyaAd('Sinav_'+r.ad)+'.doc', '\ufeff'+h, 'application/msword');
     });
   };
 
@@ -5119,10 +5115,7 @@ if(!window.__KLV_ART)KBL.baslat();
     <h2 id="snHeaderCount" style="margin-top:1.1rem">Sınav Sonuçları (${res.length} Öğrenci)</h2>
     <div class="btnrow" style="justify-content:flex-start">
       <button class="btn" id="snAllPdfDl" style="background:#0f766e;color:#fff;font-weight:800">📥 Tümünü PDF İndir (${res.length} Kişi)</button>
-      <button class="btn small" id="snAllPrint" style="background:#2563eb;color:#fff;font-weight:800">🖨️ Tümünü Yazdır (${res.length} Kişi)</button>
-      <button class="btn small ghost" id="snAllDoc">📝 Tümünü Word (.doc) İndir</button>
-      <button class="btn small ghost" id="snCsv">📊 Excel (CSV) İndir</button>
-      <button class="btn small ghost" id="snPrintText">📄 Sınav Metni ve Baremi PDF/Yazdır</button>
+      <button class="btn small ghost" id="snPrintText">📄 Sınav Metni ve Baremi PDF İndir</button>
       <button class="btn small danger" id="snClear">🗑️ Sonuçları Temizle</button>
     </div>
     <div class="muted" id="snMsg" style="min-height:1.2rem;font-weight:600;color:#0f766e"></div>
@@ -5182,16 +5175,6 @@ if(!window.__KLV_ART)KBL.baslat();
       const cur = window.sinavTumunuYenile();
       if(cur.length) window.sinavPdf(cur, 'Sinav_Sonuclari', false, true);
     };
-    $('#snAllPrint').onclick = () => {
-      const cur = window.sinavTumunuYenile();
-      if(cur.length) window.sinavDogrudanYazdir(cur, 'Sinav_Sonuclari', false, true);
-    };
-    $('#snAllDoc').onclick = () => {
-      const cur = window.sinavTumunuYenile();
-      if(!cur.length) return;
-      const h = sinavRaporHtml(cur, 'Sinav_Sonuclari', true).replace('<html lang="tr">','<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" lang="tr">');
-      dlFile('Sinav_Sonuclari.doc', '\ufeff'+h, 'application/msword');
-    };
     $('#snPrintText').onclick = () => window.sinavPdf([{adSinav:a.ad,metin:a.metin,hesapDk:a.hesap,no:a.no,k:5*a.no,barem:a.barem}], 'Sinav_Metni_ve_Barem', true, true);
     $('#snClear').onclick = () => {
       const cur = S.get('sinavSonuc', []) || [];
@@ -5205,16 +5188,6 @@ if(!window.__KLV_ART)KBL.baslat();
       b.dataset.ok = '1';
       b.textContent = 'Emin misin? Silmek için tekrar bas';
       setTimeout(() => { if(document.body.contains(b)){ b.dataset.ok = '0'; b.textContent = '🗑️ Sonuçları Temizle'; } }, 4000);
-    };
-    $('#snCsv').onclick = () => {
-      const cur = window.sinavTumunuYenile();
-      T.csv('sinav_sonuclari',
-        ['Tarih','Öğrenci','Sınıf/No','Sınav','Test sayısı','Test netleri','Seçilen test','Brüt vuruş','Hata','Hata katsayısı','Hata indirim puanı','Hesap süresi (dk)','Net vuruş','Puan','Barem','İhlal'],
-        cur.map(r => {
-          const b = r.tests[r.sec];
-          return [sinavTarih(r.t), r.ad, r.sn, r.adSinav, r.tests.length, r.tests.map(t=>t.net).join('/'), r.sec+1, b.brut, b.hata, r.k, b.hataPuan, r.hesapDk, b.net, b.puan, r.barem==='okul'?'okul':'kitap', 0];
-        })
-      );
     };
   };
 
@@ -5303,11 +5276,11 @@ if(!window.__KLV_ART)KBL.baslat();
 <script>
 if('caches' in window){
   caches.keys().then(function(ks){
-    ks.forEach(function(k){ if(k !== 'klv-ogretmen-v6') caches.delete(k); });
+    ks.forEach(function(k){ if(k !== 'klv-ogretmen-v7') caches.delete(k); });
   }).catch(function(){});
 }
 if('serviceWorker' in navigator && location.protocol.indexOf('http')===0){
-  navigator.serviceWorker.register('sw.js?v=6', {updateViaCache:'none'}).then(function(reg){
+  navigator.serviceWorker.register('sw.js?v=7', {updateViaCache:'none'}).then(function(reg){
     try{ reg.update(); }catch(e){}
   }).catch(function(){});
 }
