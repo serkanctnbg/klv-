@@ -218,6 +218,40 @@ th{position:sticky;top:0;background:var(--card);z-index:1}
 .qr-zoom-bar{display:flex;align-items:center;gap:.4rem;margin-top:.45rem;flex-wrap:wrap}
 .qr-zoom-btn{padding:.28rem .65rem;border-radius:.4rem;border:1px solid #0d9488;background:#fff;color:#0f766e;font-weight:700;font-size:.8rem;cursor:pointer}
 .qr-zoom-btn.on{background:#0f766e;color:#fff}
+#klvPrintOverlay{position:fixed;inset:0;z-index:99999;background:#cbd5e1;overflow-y:auto;padding:70px 12px 32px 12px;color:#000;font-family:Arial,Helvetica,sans-serif}
+#klvPrintOverlay .no-print-bar{position:fixed;top:0;left:0;right:0;z-index:100000;background:#0f172a;color:#fff;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+#klvPrintOverlay .p-back-btn{background:#ef4444;color:#fff;border:0;padding:9px 16px;font-size:14px;font-weight:800;border-radius:8px;cursor:pointer;white-space:nowrap}
+#klvPrintOverlay .p-print-btn{background:#16a34a;color:#fff;border:0;padding:9px 18px;font-size:14px;font-weight:800;border-radius:8px;cursor:pointer;white-space:nowrap}
+#klvPrintOverlay .pg{width:210mm;min-height:297mm;padding:14mm 15mm;margin:0 auto 18px auto;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.18);border-radius:4px;page-break-after:always;page-break-inside:avoid;break-after:page;break-inside:avoid}
+#klvPrintOverlay .pg:last-child{page-break-after:auto;break-after:auto}
+#klvPrintOverlay h2{font-size:13pt;margin:0 0 3pt;text-align:center;color:#000}
+#klvPrintOverlay h3{font-size:11pt;margin:0 0 10pt;text-align:center;color:#000}
+#klvPrintOverlay h4{font-size:10.5pt;margin:10pt 0 4pt;color:#000}
+#klvPrintOverlay table{border-collapse:collapse;width:100%;margin-bottom:6pt}
+#klvPrintOverlay td,#klvPrintOverlay th{border:1px solid #000;padding:4.5pt 8pt;vertical-align:middle;color:#000}
+#klvPrintOverlay table.kompakt-ust td.lbl{background:#f1f5f9;width:23%;font-weight:bold;font-size:10pt}
+#klvPrintOverlay table.kompakt-ust td.val{width:27%;font-size:10.5pt}
+#klvPrintOverlay table.kompakt-ust td.puan-lbl{background:#e2e8f0;font-weight:bold;font-size:10.5pt}
+#klvPrintOverlay table.kompakt-ust td.puan-val{font-size:13pt;background:#f8fafc}
+#klvPrintOverlay .ozet-satir{font-size:9.5pt;margin:4pt 0 8pt;padding:4pt 8pt;background:#f8fafc;border:1px solid #94a3b8;color:#000}
+#klvPrintOverlay .mono{font-family:'Courier New',Courier,monospace;font-size:10.5pt;line-height:1.48;border:1px solid #000;padding:7pt 9pt;white-space:pre-wrap;word-break:break-word;color:#000;background:#fff}
+#klvPrintOverlay u.e{text-decoration:underline;font-weight:bold}
+#klvPrintOverlay table.br{width:100%;font-size:8pt}
+#klvPrintOverlay .cov .mono{font-size:9pt;line-height:1.35}
+#klvPrintOverlay .cov table.br{font-size:7pt}
+#klvPrintOverlay .cov table.br td,#klvPrintOverlay .cov table.br th{padding:0 4pt;text-align:center}
+#klvPrintOverlay table.br td,#klvPrintOverlay table.br th{padding:1pt 4pt;text-align:center;border:1px solid #000}
+#klvPrintOverlay table.br th{background:#eee}
+#klvPrintOverlay table.br .hl{font-weight:bold;border:2px solid #000;background:#ddd}
+#klvPrintOverlay .sm{font-size:8.5pt;font-weight:normal;color:#333}
+@media print{
+  @page{size:210mm 297mm;margin:12mm}
+  body.klv-printing > *:not(#klvPrintOverlay){display:none !important}
+  body.klv-printing{background:#fff !important;margin:0 !important;padding:0 !important}
+  body.klv-printing #klvPrintOverlay{position:static !important;background:#fff !important;padding:0 !important;overflow:visible !important}
+  body.klv-printing #klvPrintOverlay .no-print-bar{display:none !important}
+  body.klv-printing #klvPrintOverlay .pg{width:100% !important;min-height:268mm !important;max-height:272mm !important;padding:0 !important;margin:0 !important;box-shadow:none !important;overflow:hidden !important}
+}
 
 </style>
 </head>
@@ -4586,28 +4620,42 @@ if(!window.__KLV_ART)KBL.baslat();
     </style></head><body>${(gosterKapak && recs && recs.length) ? sinavKapak(recs, true) : ''}${recs.map(r => sinavRaporBlok(r)).join('')}</body></html>`;
   };
 
-  /* 5) Toplu Yazdırma / Sistem PDF Kaydetme */
+  /* 5) Uygulama İçi Tam Ekran Önizleme + Yazdır / PDF Kaydet Katmanı
+        - Yeni sekmede sıkışıp kalmayı önler; sol üstte «⬅ Geri Dön / Kapat», sağ üstte «🖨️ Yazdır / PDF Olarak Kaydet» butonu yer alır. */
   window.sinavDogrudanYazdir = function(recs, title, sadeceKapak, kapakDahil){
-    const html = sadeceKapak
-      ? sinavRaporHtml([], title, false).replace('</body>', sinavKapak(recs, true) + '</body>')
-      : sinavRaporHtml(recs, title, !!kapakDahil);
-    const w = window.open('', '_blank');
-    if(w && w.document){
-      w.document.open();
-      w.document.write(html);
-      w.document.close();
-      setTimeout(() => { try{ w.focus(); w.print(); }catch(e){} }, 350);
-    } else {
-      const f = document.createElement('iframe');
-      f.style.cssText = 'position:fixed;right:0;bottom:0;width:1px;height:1px;border:0;opacity:0';
-      document.body.appendChild(f);
-      f.srcdoc = html;
-      f.onload = () => {
-        try{ Lock.pause = true; f.contentWindow.focus(); f.contentWindow.print(); }catch(e){}
-        Lock.pause = false;
-        setTimeout(() => f.remove(), 60000);
-      };
-    }
+    const prev = document.getElementById('klvPrintOverlay');
+    if(prev) prev.remove();
+
+    const gosterKapak = (kapakDahil !== undefined) ? !!kapakDahil : (recs && recs.length > 1);
+    const innerPages = sadeceKapak
+      ? sinavKapak(recs, true)
+      : ((gosterKapak && recs && recs.length ? sinavKapak(recs, true) : '') + (recs || []).map(r => sinavRaporBlok(r)).join(''));
+
+    const ov = document.createElement('div');
+    ov.id = 'klvPrintOverlay';
+    const sayfaSayisi = sadeceKapak ? 1 : ((gosterKapak && recs && recs.length ? 1 : 0) + (recs ? recs.length : 0));
+    ov.innerHTML = `
+      <div class="no-print-bar">
+        <button type="button" class="p-back-btn" id="klvPrintCloseBtn">⬅ Geri Dön / Kapat</button>
+        <div style="text-align:center;font-size:14px;font-weight:700">
+          📄 ${esc(title || 'Sınav Sonuçları')} (${sayfaSayisi} Sayfa — Dikey A4)
+        </div>
+        <button type="button" class="p-print-btn" id="klvPrintNowBtn">🖨️ Yazdır / PDF Olarak Kaydet</button>
+      </div>
+      <div class="klv-print-pages">${innerPages}</div>
+    `;
+    document.body.appendChild(ov);
+    document.body.classList.add('klv-printing');
+
+    const closeOv = () => {
+      document.body.classList.remove('klv-printing');
+      ov.remove();
+    };
+    ov.querySelector('#klvPrintCloseBtn').onclick = closeOv;
+    ov.querySelector('#klvPrintNowBtn').onclick = () => {
+      try{ Lock.pause = true; window.print(); }catch(e){}
+      Lock.pause = false;
+    };
   };
 
   sinavPdf = window.sinavPdf = async function(recs, fn, sadeceKapak){
