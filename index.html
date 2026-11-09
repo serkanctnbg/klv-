@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="F Klavye Öğretmen">
 <meta name="mobile-web-app-capable" content="yes">
-<title>F Klavye Öğretmen (v5)</title>
+<title>F Klavye Öğretmen (v6)</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230f766e%22/%3E%3Crect%20x%3D%227%22%20y%3D%2219%22%20width%3D%2250%22%20height%3D%2230%22%20rx%3D%225%22%20fill%3D%22%23fff%22/%3E%3Cg%20fill%3D%22%230f766e%22%3E%3Crect%20x%3D%2212%22%20y%3D%2224%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2221%22%20y%3D%2224%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2230%22%20y%3D%2224%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2239%22%20y%3D%2224%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2248%22%20y%3D%2224%22%20width%3D%225%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2233%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2221%22%20y%3D%2233%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2230%22%20y%3D%2233%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2239%22%20y%3D%2233%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2248%22%20y%3D%2233%22%20width%3D%225%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2217%22%20y%3D%2242%22%20width%3D%2230%22%20height%3D%224%22%20rx%3D%221%22/%3E%3C/g%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="manifest" href="manifest.webmanifest">
@@ -218,41 +218,34 @@ th{position:sticky;top:0;background:var(--card);z-index:1}
 .qr-zoom-bar{display:flex;align-items:center;gap:.4rem;margin-top:.45rem;flex-wrap:wrap}
 .qr-zoom-btn{padding:.28rem .65rem;border-radius:.4rem;border:1px solid #0d9488;background:#fff;color:#0f766e;font-weight:700;font-size:.8rem;cursor:pointer}
 .qr-zoom-btn.on{background:#0f766e;color:#fff}
-#klvPrintOverlay{position:fixed;inset:0;z-index:99999;background:#cbd5e1;overflow-y:auto;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:86px 10px 90px 10px;color:#000;font-family:Arial,Helvetica,sans-serif}
-#klvPrintOverlay .no-print-bar{position:fixed;top:0;left:0;right:0;z-index:100001;background:#0f172a;color:#fff;padding:12px 14px;padding-top:max(12px,env(safe-area-inset-top));display:flex;align-items:center;justify-content:space-between;gap:8px;box-shadow:0 4px 14px rgba(0,0,0,.35)}
-#klvPrintOverlay .no-print-bottom{position:fixed;bottom:0;left:0;right:0;z-index:100001;background:rgba(15,23,42,.95);color:#fff;padding:10px 14px;padding-bottom:max(12px,env(safe-area-inset-bottom));display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 -4px 14px rgba(0,0,0,.35)}
-#klvPrintOverlay .p-back-btn{background:#dc2626;color:#fff;border:0;padding:10px 16px;font-size:15px;font-weight:800;border-radius:8px;cursor:pointer;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.25)}
-#klvPrintOverlay .p-print-btn{background:#16a34a;color:#fff;border:0;padding:10px 18px;font-size:15px;font-weight:800;border-radius:8px;cursor:pointer;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.25)}
-#klvPrintOverlay .pg{width:210mm;max-width:100%;min-height:297mm;padding:12mm 14mm;margin:0 auto 18px auto;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.18);border-radius:4px;page-break-after:always;page-break-inside:avoid;break-after:page;break-inside:avoid}
-#klvPrintOverlay .pg:last-child{page-break-after:auto;break-after:auto}
-#klvPrintOverlay h2{font-size:13pt;margin:0 0 3pt;text-align:center;color:#000}
-#klvPrintOverlay h3{font-size:11pt;margin:0 0 10pt;text-align:center;color:#000}
-#klvPrintOverlay h4{font-size:10.5pt;margin:10pt 0 4pt;color:#000}
-#klvPrintOverlay table{border-collapse:collapse;width:100%;margin-bottom:6pt}
-#klvPrintOverlay td,#klvPrintOverlay th{border:1px solid #000;padding:4.5pt 8pt;vertical-align:middle;color:#000}
-#klvPrintOverlay table.kompakt-ust td.lbl{background:#f1f5f9;width:23%;font-weight:bold;font-size:10pt}
-#klvPrintOverlay table.kompakt-ust td.val{width:27%;font-size:10.5pt}
-#klvPrintOverlay table.kompakt-ust td.puan-lbl{background:#e2e8f0;font-weight:bold;font-size:10.5pt}
-#klvPrintOverlay table.kompakt-ust td.puan-val{font-size:13pt;background:#f8fafc}
-#klvPrintOverlay .ozet-satir{font-size:9.5pt;margin:4pt 0 8pt;padding:4pt 8pt;background:#f8fafc;border:1px solid #94a3b8;color:#000}
-#klvPrintOverlay .mono{font-family:'Courier New',Courier,monospace;font-size:10.5pt;line-height:1.48;border:1px solid #000;padding:7pt 9pt;white-space:pre-wrap;word-break:break-word;color:#000;background:#fff}
-#klvPrintOverlay u.e{text-decoration:underline;font-weight:bold}
-#klvPrintOverlay table.br{width:100%;font-size:8pt}
-#klvPrintOverlay .cov .mono{font-size:9pt;line-height:1.35}
-#klvPrintOverlay .cov table.br{font-size:7pt}
-#klvPrintOverlay .cov table.br td,#klvPrintOverlay .cov table.br th{padding:0 4pt;text-align:center}
-#klvPrintOverlay table.br td,#klvPrintOverlay table.br th{padding:1pt 4pt;text-align:center;border:1px solid #000}
-#klvPrintOverlay table.br th{background:#eee}
-#klvPrintOverlay table.br .hl{font-weight:bold;border:2px solid #000;background:#ddd}
-#klvPrintOverlay .sm{font-size:8.5pt;font-weight:normal;color:#333}
+#klvPrintOverlay{display:none}
 @media print{
   @page{size:210mm 297mm;margin:12mm}
   body.klv-printing > *:not(#klvPrintOverlay){display:none !important}
-  body.klv-printing{background:#fff !important;margin:0 !important;padding:0 !important}
-  body.klv-printing #klvPrintOverlay{position:static !important;background:#fff !important;padding:0 !important;overflow:visible !important}
-  body.klv-printing #klvPrintOverlay .no-print-bar,
-  body.klv-printing #klvPrintOverlay .no-print-bottom{display:none !important}
-  body.klv-printing #klvPrintOverlay .pg{width:100% !important;max-width:none !important;min-height:268mm !important;max-height:272mm !important;padding:0 !important;margin:0 !important;box-shadow:none !important;overflow:hidden !important}
+  body.klv-printing{background:#fff !important;margin:0 !important;padding:0 !important;overflow:visible !important;height:auto !important}
+  body.klv-printing #klvPrintOverlay{display:block !important;position:static !important;background:#fff !important;padding:0 !important;margin:0 !important;overflow:visible !important;color:#000;font-family:Arial,Helvetica,sans-serif}
+  body.klv-printing #klvPrintOverlay .pg{width:100% !important;max-width:none !important;min-height:268mm !important;max-height:272mm !important;padding:0 !important;margin:0 !important;box-shadow:none !important;overflow:hidden !important;page-break-after:always;page-break-inside:avoid;break-after:page;break-inside:avoid}
+  body.klv-printing #klvPrintOverlay .pg:last-child{page-break-after:auto;break-after:auto}
+  body.klv-printing #klvPrintOverlay h2{font-size:13pt;margin:0 0 3pt;text-align:center;color:#000}
+  body.klv-printing #klvPrintOverlay h3{font-size:11pt;margin:0 0 10pt;text-align:center;color:#000}
+  body.klv-printing #klvPrintOverlay h4{font-size:10.5pt;margin:10pt 0 4pt;color:#000}
+  body.klv-printing #klvPrintOverlay table{border-collapse:collapse;width:100%;margin-bottom:6pt}
+  body.klv-printing #klvPrintOverlay td,body.klv-printing #klvPrintOverlay th{border:1px solid #000;padding:4.5pt 8pt;vertical-align:middle;color:#000}
+  body.klv-printing #klvPrintOverlay table.kompakt-ust td.lbl{background:#f1f5f9;width:23%;font-weight:bold;font-size:10pt}
+  body.klv-printing #klvPrintOverlay table.kompakt-ust td.val{width:27%;font-size:10.5pt}
+  body.klv-printing #klvPrintOverlay table.kompakt-ust td.puan-lbl{background:#e2e8f0;font-weight:bold;font-size:10.5pt}
+  body.klv-printing #klvPrintOverlay table.kompakt-ust td.puan-val{font-size:13pt;background:#f8fafc}
+  body.klv-printing #klvPrintOverlay .ozet-satir{font-size:9.5pt;margin:4pt 0 8pt;padding:4pt 8pt;background:#f8fafc;border:1px solid #94a3b8;color:#000}
+  body.klv-printing #klvPrintOverlay .mono{font-family:'Courier New',Courier,monospace;font-size:10.5pt;line-height:1.48;border:1px solid #000;padding:7pt 9pt;white-space:pre-wrap;word-break:break-word;color:#000;background:#fff}
+  body.klv-printing #klvPrintOverlay u.e{text-decoration:underline;font-weight:bold}
+  body.klv-printing #klvPrintOverlay table.br{width:100%;font-size:8pt}
+  body.klv-printing #klvPrintOverlay .cov .mono{font-size:9pt;line-height:1.35}
+  body.klv-printing #klvPrintOverlay .cov table.br{font-size:7pt}
+  body.klv-printing #klvPrintOverlay .cov table.br td,body.klv-printing #klvPrintOverlay .cov table.br th{padding:0 4pt;text-align:center}
+  body.klv-printing #klvPrintOverlay table.br td,body.klv-printing #klvPrintOverlay table.br th{padding:1pt 4pt;text-align:center;border:1px solid #000}
+  body.klv-printing #klvPrintOverlay table.br th{background:#eee}
+  body.klv-printing #klvPrintOverlay table.br .hl{font-weight:bold;border:2px solid #000;background:#ddd}
+  body.klv-printing #klvPrintOverlay .sm{font-size:8.5pt;font-weight:normal;color:#333}
 }
 
 </style>
@@ -260,12 +253,12 @@ th{position:sticky;top:0;background:var(--card);z-index:1}
 <body>
 <!-- GİRİŞ -->
 <section id="scLogin" class="screen on">
-  <div class="topbar"><h1>⌨️ Klavye Teknikleri · F Klavye Yazma Uygulaması</h1><span class="sp"></span><span class="muted" style="font-size:.7rem">Sürüm 06.10 21:46</span>
+  <div class="topbar"><h1>⌨️ F Klavye Öğretmen Uygulaması</h1><span class="sp"></span><span class="muted" style="font-size:.7rem"><b style="color:#14b8a6">Sürüm v6 (Öğretmen)</b></span>
     <button class="iconbtn" id="btnTheme" title="Koyu / açık tema">🌓</button>
     <button class="iconbtn" id="btnTeacher0" title="Öğretmen paneli">🔒</button></div>
   <div class="center">
     <div class="card">
-      <h2>Merhaba! Kimsin?</h2>
+      <div class="ogretmen-hizli-bar"><div><b>📋 F Klavye Öğretmen Sürümü <span style="background:#fff;color:#0f766e;padding:1px 7px;border-radius:99px;font-size:.75rem;margin-left:4px">v6</span></b><div style="font-size:.8rem;opacity:.9">Sınav karekodlarını okutmak, sonuçları görmek ve çıktı almak için dokunun</div></div><div style="display:flex;gap:.45rem;flex-wrap:wrap"><button type="button" id="btnOgretmenCacheSil" style="background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.4)">🔄 Güncelle</button><button type="button" id="btnOgretmenHizli">🖨️ Sınav & Karekod Paneli</button></div></div><h2>Merhaba! Kimsin?</h2>
       <div class="muted">Adını yaz ya da daha önce çalışan öğrencilerden kendini seç.</div>
       <div class="students" id="studentList"></div>
       <label class="f" for="inName">Ad Soyad</label>
@@ -4622,8 +4615,7 @@ if(!window.__KLV_ART)KBL.baslat();
     </style></head><body>${(gosterKapak && recs && recs.length) ? sinavKapak(recs, true) : ''}${recs.map(r => sinavRaporBlok(r)).join('')}</body></html>`;
   };
 
-  /* 5) Uygulama İçi Tam Ekran Önizleme + Yazdır / PDF Kaydet Katmanı
-        - Yeni sekmede sıkışıp kalmayı önler; sol üstte «⬅ Geri Dön / Kapat», sağ üstte «🖨️ Yazdır / PDF Olarak Kaydet» butonu yer alır. */
+  /* 5) Ekranda Hiçbir Belge Penceresi Açmadan Doğrudan Yazdırma + Sayfa Sayfa PDF İndirme Motoru */
   window.sinavDogrudanYazdir = function(recs, title, sadeceKapak, kapakDahil){
     const prev = document.getElementById('klvPrintOverlay');
     if(prev) prev.remove();
@@ -4635,74 +4627,78 @@ if(!window.__KLV_ART)KBL.baslat();
 
     const ov = document.createElement('div');
     ov.id = 'klvPrintOverlay';
-    const sayfaSayisi = sadeceKapak ? 1 : ((gosterKapak && recs && recs.length ? 1 : 0) + (recs ? recs.length : 0));
-    ov.innerHTML = `
-      <div class="no-print-bar">
-        <button type="button" class="p-back-btn" id="klvPrintCloseBtn">⬅ Geri Dön / Kapat</button>
-        <div style="text-align:center;font-size:13px;font-weight:700">
-          📄 ${esc(title || 'Sınav Sonuçları')} (${sayfaSayisi} Sayfa)
-        </div>
-        <button type="button" class="p-print-btn" id="klvPrintNowBtn">🖨️ Yazdır / PDF Kaydet</button>
-      </div>
-      <div class="klv-print-pages">${innerPages}</div>
-      <div class="no-print-bottom">
-        <button type="button" class="p-back-btn" id="klvPrintCloseBtn2" style="flex:1">⬅ GERİ DÖN / KAPAT</button>
-        <button type="button" class="p-print-btn" id="klvPrintNowBtn2" style="flex:1">🖨️ YAZDIR / PDF KAYDET</button>
-      </div>
-    `;
+    ov.innerHTML = `<div class="klv-print-pages">${innerPages}</div>`;
     document.body.appendChild(ov);
     document.body.classList.add('klv-printing');
 
-    const closeOv = () => {
+    const cleanup = () => {
       document.body.classList.remove('klv-printing');
-      ov.remove();
+      if(ov.parentNode) ov.remove();
     };
-    const doPrint = () => {
-      try{ Lock.pause = true; window.print(); }catch(e){}
-      Lock.pause = false;
-    };
-    ov.querySelector('#klvPrintCloseBtn').onclick = closeOv;
-    ov.querySelector('#klvPrintCloseBtn2').onclick = closeOv;
-    ov.querySelector('#klvPrintNowBtn').onclick = doPrint;
-    ov.querySelector('#klvPrintNowBtn2').onclick = doPrint;
+    window.addEventListener('afterprint', cleanup, {once:true});
+    try{
+      Lock.pause = true;
+      window.print();
+    }catch(e){}
+    Lock.pause = false;
+    setTimeout(cleanup, 2000);
   };
 
-  sinavPdf = window.sinavPdf = async function(recs, fn, sadeceKapak){
+  /* Sayfa Sayfa PDF Üretici: 26+ öğrencide canvas sınırına takılıp boş PDF çıkmasını %100 önler */
+  sinavPdf = window.sinavPdf = async function(recs, fn, sadeceKapak, kapakDahil){
     const msg = t => { const e = document.getElementById('snMsg'); if(e) e.textContent = t; };
-    if(recs && recs.length > 3 && !window.__KLV_ART){
-      msg('🖨️ Yazdırma / PDF kaydetme penceresi açıldı (Hedef olarak «PDF Olarak Kaydet» veya yazıcınızı seçin).');
-      window.sinavDogrudanYazdir(recs, fn, sadeceKapak, false);
-      return;
-    }
     let host = null;
     try{
-      if(typeof html2pdf === 'undefined'){ window.sinavDogrudanYazdir(recs, fn, sadeceKapak, false); return; }
-      msg('⏳ PDF hazırlanıyor…');
-      const html = sadeceKapak ? sinavRaporHtml([], fn, false).replace('</body>', sinavKapak(recs, true)+'</body>') : sinavRaporHtml(recs, fn, false);
+      if(typeof html2pdf === 'undefined'){
+        window.sinavDogrudanYazdir(recs, fn, sadeceKapak, kapakDahil);
+        return;
+      }
+      const gosterKapak = (kapakDahil !== undefined) ? !!kapakDahil : (recs && recs.length > 1);
+      const html = sadeceKapak
+        ? sinavRaporHtml([], fn, false).replace('</body>', sinavKapak(recs, true)+'</body>')
+        : sinavRaporHtml(recs, fn, gosterKapak);
       const doc = new DOMParser().parseFromString(html, 'text/html');
       const st = doc.querySelector('style');
       host = document.createElement('div');
-      host.style.cssText = 'position:fixed;left:0;top:0;z-index:-9999;opacity:0.01;pointer-events:none;width:190mm;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif;font-size:10pt';
-      host.innerHTML = '<style>'+(st?st.textContent.replace(/@page[^}]*}/,'').replace(/body\{[^}]*\}/,''):'')+'</style><div id="klvPdfRoot" style="width:190mm;background:#fff;color:#000">'+doc.body.innerHTML+'</div>';
+      host.style.cssText = 'position:fixed;left:0;top:0;z-index:-9999;opacity:0.01;pointer-events:none;width:186mm;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif;font-size:10.5pt';
+      const cleanCss = st ? st.textContent.replace(/@page[^}]*}/g,'').replace(/@media\s+screen\s*\{[\s\S]*?\}\s*\}/g,'').replace(/body\{[^}]*\}/g,'') : '';
+      host.innerHTML = '<style>' + cleanCss + '\n.pg{width:186mm !important;min-height:268mm !important;max-height:270mm !important;padding:2mm !important;margin:0 !important;box-shadow:none !important;background:#fff !important;overflow:hidden !important}</style><div id="klvPdfRoot" style="width:186mm;background:#fff;color:#000">' + doc.body.innerHTML + '</div>';
       document.body.appendChild(host);
-      const blob = await html2pdf().set({
-        margin:[10,10,10,10],
-        image:{type:'jpeg',quality:0.95},
-        html2canvas:{scale:2,useCORS:true,backgroundColor:'#ffffff',scrollY:0},
-        jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},
-        pagebreak:{mode:['css','legacy']}
-      }).from(host.querySelector('#klvPdfRoot')).outputPdf('blob');
+
+      const pages = Array.from(host.querySelectorAll('#klvPdfRoot .pg'));
+      if(!pages.length) throw new Error('Sayfa bulunamadı');
+
+      const opt = {
+        margin: [10, 12, 10, 12],
+        image: {type:'jpeg', quality:0.95},
+        html2canvas: {scale:2, useCORS:true, backgroundColor:'#ffffff', scrollY:0, windowWidth:794},
+        jsPDF: {unit:'mm', format:'a4', orientation:'portrait'}
+      };
+
+      msg(`⏳ PDF hazırlanıyor (Sayfa 1 / ${pages.length})…`);
+      let worker = html2pdf().set(opt).from(pages[0]).toContainer().toCanvas().toPdf();
+      for(let i = 1; i < pages.length; i++){
+        const pEl = pages[i];
+        const pNo = i + 1;
+        worker = worker.get('pdf').then(pdf => {
+          msg(`⏳ PDF hazırlanıyor (Sayfa ${pNo} / ${pages.length})…`);
+          pdf.addPage();
+        }).from(pEl).toContainer().toCanvas().toPdf();
+      }
+      const blob = await worker.outputPdf('blob');
       host.remove(); host = null;
+
+      const fileName = sinavDosyaAd(fn || 'Sinav_Sonuclari') + '.pdf';
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
-      a.download = sinavDosyaAd(fn) + '.pdf';
+      a.download = fileName;
       document.body.appendChild(a);
       a.click();
-      setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
-      msg('✅ PDF indirildi: ' + sinavDosyaAd(fn) + '.pdf');
+      setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 3000);
+      msg(`✅ PDF indirildi: ${fileName} (${pages.length} sayfa)`);
     }catch(e){
       if(host) host.remove();
-      window.sinavDogrudanYazdir(recs, fn, sadeceKapak, false);
+      msg('⚠️ PDF oluşturulurken hata: ' + (e.message || e));
     }
   };
 
@@ -4988,7 +4984,8 @@ if(!window.__KLV_ART)KBL.baslat();
     const cntEl = document.getElementById('snCountSpan'); if(cntEl) cntEl.textContent = res.length;
     const avgEl = document.getElementById('snAvgSpan'); if(avgEl) avgEl.textContent = ortYeni;
     const hdrEl = document.getElementById('snHeaderCount'); if(hdrEl) hdrEl.textContent = `Sınav Sonuçları (${res.length} Öğrenci)`;
-    const prtBtn = document.getElementById('snAllPrint'); if(prtBtn) prtBtn.textContent = `🖨️ Tümünü Yazdır / PDF Kaydet (${res.length} Kişi)`;
+    const pdfBtn = document.getElementById('snAllPdfDl'); if(pdfBtn) pdfBtn.textContent = `📥 Tümünü PDF İndir (${res.length} Kişi)`;
+    const prtBtn = document.getElementById('snAllPrint'); if(prtBtn) prtBtn.textContent = `🖨️ Tümünü Yazdır (${res.length} Kişi)`;
 
     tbody.innerHTML = window.sinavTabloSatirlariHTML(res, ay);
     window.sinavTabloBagla(T, document.getElementById('pnBody'), res);
@@ -5025,7 +5022,8 @@ if(!window.__KLV_ART)KBL.baslat();
         <td>${b.netC}</td>
         <td><b style="font-size:1.1rem;color:#0f766e">${b.puan}</b></td>
         <td>
-          <button class="btn small ghost" data-print="${r.id}">🖨️ Yazdır/PDF</button>
+          <button class="btn small ghost" data-pdf-dl="${r.id}">📥 PDF</button>
+          <button class="btn small ghost" data-print="${r.id}">🖨️ Yazdır</button>
           <button class="btn small ghost" data-doc="${r.id}">Word</button>
         </td>
       </tr>`;
@@ -5042,6 +5040,10 @@ if(!window.__KLV_ART)KBL.baslat();
         S.set('telafiOzel', ozel);
         window.sinavTabloSadeceGuncelle(T);
       };
+    });
+    body.querySelectorAll('[data-pdf-dl]').forEach(b => b.onclick = () => {
+      const r = res.find(x => String(x.id) === b.dataset.pdfDl);
+      if(r) window.sinavPdf([r], 'Sinav_' + r.ad, false, false);
     });
     body.querySelectorAll('[data-print]').forEach(b => b.onclick = () => {
       const r = res.find(x => String(x.id) === b.dataset.print);
@@ -5116,10 +5118,11 @@ if(!window.__KLV_ART)KBL.baslat();
 
     <h2 id="snHeaderCount" style="margin-top:1.1rem">Sınav Sonuçları (${res.length} Öğrenci)</h2>
     <div class="btnrow" style="justify-content:flex-start">
-      <button class="btn" id="snAllPrint" style="background:#0f766e;color:#fff;font-weight:800">🖨️ Tümünü Yazdır / PDF Kaydet (${res.length} Kişi)</button>
+      <button class="btn" id="snAllPdfDl" style="background:#0f766e;color:#fff;font-weight:800">📥 Tümünü PDF İndir (${res.length} Kişi)</button>
+      <button class="btn small" id="snAllPrint" style="background:#2563eb;color:#fff;font-weight:800">🖨️ Tümünü Yazdır (${res.length} Kişi)</button>
       <button class="btn small ghost" id="snAllDoc">📝 Tümünü Word (.doc) İndir</button>
       <button class="btn small ghost" id="snCsv">📊 Excel (CSV) İndir</button>
-      <button class="btn small ghost" id="snPrintText">📄 Sınav Metni ve Baremi Yazdır</button>
+      <button class="btn small ghost" id="snPrintText">📄 Sınav Metni ve Baremi PDF/Yazdır</button>
       <button class="btn small danger" id="snClear">🗑️ Sonuçları Temizle</button>
     </div>
     <div class="muted" id="snMsg" style="min-height:1.2rem;font-weight:600;color:#0f766e"></div>
@@ -5175,6 +5178,10 @@ if(!window.__KLV_ART)KBL.baslat();
       };
     });
 
+    $('#snAllPdfDl').onclick = () => {
+      const cur = window.sinavTumunuYenile();
+      if(cur.length) window.sinavPdf(cur, 'Sinav_Sonuclari', false, true);
+    };
     $('#snAllPrint').onclick = () => {
       const cur = window.sinavTumunuYenile();
       if(cur.length) window.sinavDogrudanYazdir(cur, 'Sinav_Sonuclari', false, true);
@@ -5185,7 +5192,7 @@ if(!window.__KLV_ART)KBL.baslat();
       const h = sinavRaporHtml(cur, 'Sinav_Sonuclari', true).replace('<html lang="tr">','<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" lang="tr">');
       dlFile('Sinav_Sonuclari.doc', '\ufeff'+h, 'application/msword');
     };
-    $('#snPrintText').onclick = () => window.sinavDogrudanYazdir([{adSinav:a.ad,metin:a.metin,hesapDk:a.hesap,no:a.no,k:5*a.no,barem:a.barem}], 'Sinav_Metni_ve_Barem', true, true);
+    $('#snPrintText').onclick = () => window.sinavPdf([{adSinav:a.ad,metin:a.metin,hesapDk:a.hesap,no:a.no,k:5*a.no,barem:a.barem}], 'Sinav_Metni_ve_Barem', true, true);
     $('#snClear').onclick = () => {
       const cur = S.get('sinavSonuc', []) || [];
       if(!cur.length) return;
@@ -5296,11 +5303,11 @@ if(!window.__KLV_ART)KBL.baslat();
 <script>
 if('caches' in window){
   caches.keys().then(function(ks){
-    ks.forEach(function(k){ if(k !== 'klv-ogretmen-v5') caches.delete(k); });
+    ks.forEach(function(k){ if(k !== 'klv-ogretmen-v6') caches.delete(k); });
   }).catch(function(){});
 }
 if('serviceWorker' in navigator && location.protocol.indexOf('http')===0){
-  navigator.serviceWorker.register('sw.js?v=5', {updateViaCache:'none'}).then(function(reg){
+  navigator.serviceWorker.register('sw.js?v=6', {updateViaCache:'none'}).then(function(reg){
     try{ reg.update(); }catch(e){}
   }).catch(function(){});
 }
