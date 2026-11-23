@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="F Klavye Öğretmen">
 <meta name="mobile-web-app-capable" content="yes">
-<title>F Klavye Öğretmen (v9)</title>
+<title>F Klavye Öğretmen (v10)</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230f766e%22/%3E%3Crect%20x%3D%227%22%20y%3D%2219%22%20width%3D%2250%22%20height%3D%2230%22%20rx%3D%225%22%20fill%3D%22%23fff%22/%3E%3Cg%20fill%3D%22%230f766e%22%3E%3Crect%20x%3D%2212%22%20y%3D%2224%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2221%22%20y%3D%2224%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2230%22%20y%3D%2224%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2239%22%20y%3D%2224%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2248%22%20y%3D%2224%22%20width%3D%225%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2212%22%20y%3D%2233%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2221%22%20y%3D%2233%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2230%22%20y%3D%2233%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2239%22%20y%3D%2233%22%20width%3D%226%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2248%22%20y%3D%2233%22%20width%3D%225%22%20height%3D%226%22%20rx%3D%221%22/%3E%3Crect%20x%3D%2217%22%20y%3D%2242%22%20width%3D%2230%22%20height%3D%224%22%20rx%3D%221%22/%3E%3C/g%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="manifest" href="manifest.webmanifest">
@@ -200,7 +200,18 @@ th{position:sticky;top:0;background:var(--card);z-index:1}
 .gauge{width:min(13.5rem,30vw);text-align:center}
 .gsvg{width:100%;height:auto;display:block}
 .glab{font-size:.8rem;font-weight:800;letter-spacing:.06em;margin-top:-.1rem}
-@media (max-height:760px){.gauge{width:min(10rem,30vw)}}
+@media (max-height:1300px){
+  .type-body{gap:.38rem;padding:.45rem 1.1rem}
+  .gauge{width:min(8.2rem,28vw)}
+  .k{height:clamp(1.65rem,4.1vh,2.45rem)}
+  .kbd{padding:.32rem;gap:.18rem}
+  .kr{gap:.18rem}
+  .tbox{min-height:5.8rem}
+  #tyPlan{padding:.25rem .9rem!important}
+  .statbar{margin:0}
+}
+@media (max-height:760px){.gauge{width:min(7.5rem,26vw)}.tbox{min-height:5rem}}
+@media (max-height:660px){.gauges{display:none}}
 @media (max-width:640px){.gauges{gap:.3rem}.gauge{width:31vw}.glab{font-size:.62rem;letter-spacing:.02em}.glab .muted{display:none}}
 
 .telafi-panel{background:#f0fdfa;border:1.5px solid #0d9488;border-radius:.75rem;padding:.85rem 1rem;margin:.8rem 0}
@@ -256,12 +267,12 @@ th{position:sticky;top:0;background:var(--card);z-index:1}
 <body>
 <!-- GİRİŞ -->
 <section id="scLogin" class="screen on">
-  <div class="topbar"><h1>⌨️ F Klavye Öğretmen Uygulaması</h1><span class="sp"></span><span class="muted" style="font-size:.7rem"><b style="color:#14b8a6">Sürüm v9 (Öğretmen)</b></span>
+  <div class="topbar"><h1>⌨️ F Klavye Öğretmen Uygulaması</h1><span class="sp"></span><span class="muted" style="font-size:.7rem"><b style="color:#14b8a6">Sürüm v10 (Öğretmen)</b></span>
     <button class="iconbtn" id="btnTheme" title="Koyu / açık tema">🌓</button>
     <button class="iconbtn" id="btnTeacher0" title="Öğretmen paneli">🔒</button></div>
   <div class="center">
     <div class="card">
-      <div class="ogretmen-hizli-bar"><div><b>📋 F Klavye Öğretmen Sürümü <span style="background:#fff;color:#0f766e;padding:1px 7px;border-radius:99px;font-size:.75rem;margin-left:4px">v9</span></b><div style="font-size:.8rem;opacity:.9">Sınav karekodlarını okutmak, sonuçları görmek ve çıktı almak için dokunun</div></div><div style="display:flex;gap:.45rem;flex-wrap:wrap"><button type="button" id="btnOgretmenCacheSil" style="background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.4)">🔄 Güncelle</button><button type="button" id="btnOgretmenHizli">🖨️ Sınav & Karekod Paneli</button></div></div><h2>Merhaba! Kimsin?</h2>
+      <div class="ogretmen-hizli-bar"><div><b>📋 F Klavye Öğretmen Sürümü <span style="background:#fff;color:#0f766e;padding:1px 7px;border-radius:99px;font-size:.75rem;margin-left:4px">v10</span></b><div style="font-size:.8rem;opacity:.9">Sınav karekodlarını okutmak, sonuçları görmek ve çıktı almak için dokunun</div></div><div style="display:flex;gap:.45rem;flex-wrap:wrap"><button type="button" id="btnOgretmenCacheSil" style="background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.4)">🔄 Güncelle</button><button type="button" id="btnOgretmenHizli">🖨️ Sınav & Karekod Paneli</button></div></div><h2>Merhaba! Kimsin?</h2>
       <div class="muted">Adını yaz ya da daha önce çalışan öğrencilerden kendini seç.</div>
       <div class="students" id="studentList"></div>
       <label class="f" for="inName">Ad Soyad</label>
@@ -2721,7 +2732,7 @@ const S={
   set(k,v){try{localStorage.setItem('klv.'+k,JSON.stringify(v));}catch(e){MEM[k]=v;}},
   del(k){try{localStorage.removeItem('klv.'+k);}catch(e){delete MEM[k];}}
 };
-const CFG_DEF={tekrar:3,esik:85,kb:'early',free:false,u3:false,lock:true,viol:'reset',sound:false,theme:'light',kbEarly:1,vl:1,blok:true,blokN:4,blokDk:5,araDk:2};
+const CFG_DEF={tekrar:3,esik:85,kb:'always',free:false,u3:false,lock:true,viol:'reset',sound:false,theme:'light',kbEarly:1,vl:1,blok:true,blokN:4,blokDk:5,araDk:2};
 const APP_VER=2;
 function dname(L){return L.hafta?('Hafta '+L.hafta+' · Ders '+L.ders+' – '+L.title):L.title;}
 function dlFile(fn,txt,type){
@@ -3306,7 +3317,8 @@ const Flow={
     const wk=L.unit===2&&L.hafta!=null?U2.filter(x=>x.hafta===L.hafta):[];
     const wtxt=wk.map(x=>{const st=lessonState(x,p);return `<span style="margin-right:.8rem;white-space:nowrap">${st.complete?'✅':(x===L?'▶':'⏳')} ${esc(this.kisaAd(x))}</span>`;}).join('');
     const tam=U2.filter(x=>lessonState(x,p).complete).map(x=>'✅ '+this.kisaAd(x));
-    el.innerHTML=`<div style="display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .9rem"><b style="font-size:1.1rem">📍 ${esc(this.student.name)} · ${esc(dname(L).replace(/\s+/g,' '))}</b><span>${dots}</span></div><div style="margin-top:.3rem;font-size:1.2rem;font-weight:700">${wtxt?'Bu hafta: '+wtxt:''}<span style="color:#16a34a;margin-left:.6rem">Biten: ${tam.length?esc(tam.join('  ')):'henüz yok'}</span></div>`;
+    const tamTxt=tam.length>5?tam.slice(-5).join('  ')+' (+'+(tam.length-5)+' ders)':tam.join('  ');
+    el.innerHTML=`<div style="display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .8rem"><b style="font-size:1.02rem">📍 ${esc(this.student.name)} · ${esc(dname(L).replace(/\s+/g,' '))}</b><span>${dots}</span><span style="font-size:1rem;font-weight:700">${wtxt?'Bu hafta: '+wtxt:''}<span style="color:#16a34a;margin-left:.5rem">Biten (${tam.length}): ${tam.length?esc(tamTxt):'henüz yok'}</span></span></div>`;
   },
   startSession(){
     const L=this.lesson;const sess=SES(L)[this.sIdx];const c=cfg();if(sess.blok)sess.rows=genRows(L,sess.blok);
@@ -3316,8 +3328,8 @@ const Flow={
     $('#tyRep').textContent='';$('#tyErr').textContent='Hata: 0';$('#tySpd').textContent='0 vuruş/dk';
     $('#tyTime').textContent=sess.mode==='timed'?fmtTime(sess.dur):'0:00';
     $('#tyBar').style.width='0%';$('#tyPct').textContent='%0';
-    let showKb=false;
-    if(L.unit===2){const idx=U2.indexOf(L);showKb=c.kb==='always'||(c.kb==='early'&&idx<=Math.max(U2.findIndex(l=>l.id==='H15-2'),c.kbEarly-1));}
+    let showKb=c.kb!=='off';
+    if(L.unit===2){const idx=U2.indexOf(L);showKb=c.kb!=='off';}
     const host=$('#tyKb');host.innerHTML='';let kb=null;
     if(showKb)kb=buildKb(host,{});
     $('#tyHint').textContent=sess.mode==='timed'?'İlk tuşa bastığında süre başlar. Süre bitince çalışma kendiliğinden biter.'
@@ -3588,15 +3600,36 @@ const Sinav={
   },
   intro(){
     const P=this.params();Lock.enter();this.viol=0;
-    this.st={test:0,typed:'',times:[],started:false,t0:0,tests:[],state:'intro',P};
+    this.st={test:0,typed:'',times:[],started:false,t0:0,tests:[],state:'intro',P,sinavAd:'',sinavSn:''};
     Flow.show('sinav');$('#snExit').classList.toggle('hidden',!P.a.sim);
     $('#snTitle').textContent=P.a.ad;$('#snTest').textContent='';$('#snTime').textContent=fmtTime(P.sureDk*60);
     ['snRun','snBetween','snDone'].forEach(x=>$('#'+x).classList.add('hidden'));$('#snIntro').classList.remove('hidden');
-    $('#snIntroTxt').innerHTML=(P.a.sim?`<p><b>🎯 Bu bir simülasyon.</b> Gerçek sınavın aynısıdır; amaç sistemi tanımak ve heyecanı atmaktır. Sonucun kaydedilmez, istediğin kadar deneyebilirsin.</p>`:'')+`<p>Ekrandaki metni <b>${P.sureDk<1?Math.round(P.sureDk*60)+' saniye':P.sureDk+' dakika'}</b> boyunca yaz${P.a.tests>1?` (aynı metinden <b>${P.a.tests} test</b> yapılacak, en iyisi alınır)`:''}. İlk tuşa bastığında süre başlar.</p>
+    const kimlikForm=P.a.sim?'':`<div style="background:var(--pri-soft,#e7efff);border:2px solid var(--pri,#2563eb);border-radius:.85rem;padding:.85rem 1rem;margin:.6rem 0 .9rem">
+      <div style="font-weight:800;color:var(--pri,#2563eb);margin-bottom:.45rem">👤 Sınav Kimlik Bilgilerin (Zorunlu)</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.6rem">
+        <div><label class="f" style="margin:.1rem 0 .2rem;font-size:.88rem">Adın Soyadın</label><input type="text" id="snInAd" autocomplete="off" maxlength="40" placeholder="Örn: Ahmet Yılmaz"></div>
+        <div><label class="f" style="margin:.1rem 0 .2rem;font-size:.88rem">Sınıfın (Örn: 10/C)</label><input type="text" id="snInSinif" autocomplete="off" maxlength="10" placeholder="Örn: 10/C"></div>
+        <div><label class="f" style="margin:.1rem 0 .2rem;font-size:.88rem">Okul Numaran</label><input type="text" id="snInNo" autocomplete="off" maxlength="10" placeholder="Örn: 429"></div>
+      </div>
+      <div id="snKimlikErr" style="color:var(--bad,#b91c1c);font-weight:800;font-size:.88rem;margin-top:.45rem;min-height:1.2rem"></div>
+    </div>`;
+    $('#snIntroTxt').innerHTML=(P.a.sim?`<p><b>🎯 Bu bir simülasyon.</b> Gerçek sınavın aynısıdır; amaç sistemi tanımak ve heyecanı atmaktır. Sonucun kaydedilmez, istediğin kadar deneyebilirsin.</p>`:'')+kimlikForm+`<p>Ekrandaki metni <b>${P.sureDk<1?Math.round(P.sureDk*60)+' saniye':P.sureDk+' dakika'}</b> boyunca yaz${P.a.tests>1?` (aynı metinden <b>${P.a.tests} test</b> yapılacak, en iyisi alınır)`:''}. İlk tuşa bastığında süre başlar.</p>
       <ul><li>Backspace ve Delete çalışmaz; yanlış yazsan da devam et.</li><li>Enter tuşunu kullanma; satır sonlarında boşluk yeterli.</li><li>Metni bitirirsen baştan devam et.</li><li>Sınav sırasında ekrandan ayrılma kaydedilir.</li></ul>`;
+    if(!P.a.sim)setTimeout(()=>{const e=$('#snInAd');if(e)e.focus();},50);
   },
   begin(){
     const P=this.st.P;const a=P.a;
+    if(!a.sim&&this.st.test===0){
+      const adEl=$('#snInAd'),snEl=$('#snInSinif'),noEl=$('#snInNo'),errEl=$('#snKimlikErr');
+      const ad=(adEl?adEl.value:'').trim();
+      const sinif=(snEl?snEl.value:'').trim();
+      const no=(noEl?noEl.value:'').trim();
+      if(ad.length<3||ad.indexOf(' ')<0){if(errEl)errEl.textContent='⚠️ Lütfen kendi Adını ve Soyadını eksiksiz yaz.';if(adEl)adEl.focus();return;}
+      if(!sinif){if(errEl)errEl.textContent='⚠️ Lütfen Sınıfını yaz (Örn: 10/C).';if(snEl)snEl.focus();return;}
+      if(!no){if(errEl)errEl.textContent='⚠️ Lütfen Okul Numaranı yaz.';if(noEl)noEl.focus();return;}
+      this.st.sinavAd=ad;
+      this.st.sinavSn=sinif+' '+no;
+    }
     Object.assign(this.st,{typed:'',times:[],started:false,t0:0,state:'run',top:0});
     $('#snIntro').classList.add('hidden');$('#snBetween').classList.add('hidden');$('#snRun').classList.remove('hidden');
     $('#snTest').textContent=a.tests>1?('Test '+(this.st.test+1)+' / '+a.tests):'';
@@ -3640,7 +3673,9 @@ const Sinav={
   finish(){
     const s=this.st,P=s.P,a=P.a;
     let bi=0;s.tests.forEach((t,i)=>{const b=s.tests[bi];if(t.puan>b.puan||(t.puan===b.puan&&t.netC>b.netC))bi=i;});
-    const rec={id:Date.now(),t:Date.now(),sid:Flow.student.id,ad:Flow.student.name,sn:Flow.student.cls||'',no:a.no,kod:a.kod,adSinav:a.ad,metin:a.metin,barem:P.barem,
+    const kayitAd=(!a.sim&&s.sinavAd)?s.sinavAd:Flow.student.name;
+    const kayitSn=(!a.sim&&s.sinavSn)?s.sinavSn:(Flow.student.cls||'');
+    const rec={id:Date.now(),t:Date.now(),sid:Flow.student.id,ad:kayitAd,sn:kayitSn,no:a.no,kod:a.kod,adSinav:a.ad,metin:a.metin,barem:P.barem,
       sureDk:P.sureDk,hesapDk:P.hesapDk,k:P.k,carpan:1,sayim:'hepsi',ek:0,not:'',ihlal:this.viol,sec:bi,sim:a.sim?1:0,
       tests:s.tests.map(t=>({typed:t.typed,brut:t.brut,hata:t.hata,hataPuan:t.hataPuan,net:t.net,netC:t.netC,puan:t.puan,ops:t.ops,last:t.last,extraSp:t.extraSp}))};
     const key=a.sim?'sinavDeneme':'sinavSonuc';
@@ -4749,7 +4784,27 @@ if(!window.__KLV_ART)KBL.baslat();
     const dolu = rec.tests.filter(t => t && String(t.typed || '').trim().length > 0);
     if(dolu.length) rec.tests = dolu;
     rec.tests = rec.tests.map(t => Object.assign({}, t, {rawTyped: t.typed}));
+    const yaziImza = hash(rec.tests.map(t => t.rawTyped || '').join('||')).slice(0, 6);
+    rec.qrImza = (p.d || '') + '|' + yaziImza;
+    rec.dk = rec.qrImza;
     return window.sinavKayitYenile(rec, false);
+  };
+
+  qrImport = window.qrImport = async function(text){
+    const p = await qrUnpack(text);
+    const rec = window.sinavKayitKur(p);
+    if(p.m) return {rec, dup:false, sim:true};
+    const all = S.get('sinavSonuc', []) || [];
+    const mevcut = all.find(r => {
+      if(r.qrImza && rec.qrImza) return r.qrImza === rec.qrImza;
+      const rYazi = (r.tests || []).map(t => t.rawTyped || t.typed || '').join('||');
+      const yeniYazi = (rec.tests || []).map(t => t.rawTyped || t.typed || '').join('||');
+      return r.t === rec.t && rYazi === yeniYazi;
+    });
+    if(mevcut) return {rec: mevcut, dup:true};
+    all.push(rec);
+    S.set('sinavSonuc', all);
+    return {rec, dup:false};
   };
 
   /* 6) GELİŞMİŞ CANLI KAMERA OKUYUCU:
@@ -5027,6 +5082,8 @@ if(!window.__KLV_ART)KBL.baslat();
     window.sinavTabloBagla(T, document.getElementById('pnBody'), res);
   };
 
+  window._duzenlenenId = null;
+
   window.sinavTabloSatirlariHTML = function(res, ay){
     if(!res.length){
       return '<tr><td colspan="10" class="muted">Henüz sınav sonucu yok. Karekod okutun veya «Yedek» sekmesinden JSON yedeğini yükleyin.</td></tr>';
@@ -5035,10 +5092,26 @@ if(!window.__KLV_ART)KBL.baslat();
       const b = r.tests[r.sec];
       const dkKey = r.dk || (r.t+'|'+r.ad);
       const ozelSec = ay.ozel[dkKey] !== undefined && ay.ozel[dkKey] !== '' ? String(ay.ozel[dkKey]) : '';
+      const isEdit = String(window._duzenlenenId) === String(r.id);
+      const adHucre = isEdit
+        ? `<div style="display:flex;flex-direction:column;gap:.3rem;min-width:170px">
+             <input type="text" id="edtAd_${r.id}" value="${esc(r.ad)}" placeholder="Ad Soyad" style="padding:.28rem .45rem;font-size:.86rem;font-weight:700;border:1.5px solid #0d9488;border-radius:.4rem">
+             <div style="display:flex;gap:.3rem">
+               <button type="button" class="btn small" data-save-edit="${r.id}" style="background:#0f766e;color:#fff;padding:.22rem .55rem;font-size:.78rem">💾 Kaydet</button>
+               <button type="button" class="btn small ghost" data-cancel-edit="${r.id}" style="padding:.22rem .55rem;font-size:.78rem">İptal</button>
+             </div>
+           </div>`
+        : `<div style="display:flex;align-items:center;gap:.35rem">
+             <b>${esc(r.ad)}</b>
+             <button type="button" class="btn small ghost" data-edit-stu="${r.id}" title="Ad Soyad ve Sınıf/No Düzenle" style="padding:.15rem .4rem;font-size:.78rem">✏️</button>
+           </div>`;
+      const snHucre = isEdit
+        ? `<input type="text" id="edtSn_${r.id}" value="${esc(r.sn||'')}" placeholder="Örn: 10/C 429" style="padding:.28rem .45rem;font-size:.85rem;min-width:105px;border:1.5px solid #0d9488;border-radius:.4rem">`
+        : esc(r.sn||'');
       return `<tr>
         <td>${idx+1}</td>
-        <td><b>${esc(r.ad)}</b></td>
-        <td>${esc(r.sn||'')}</td>
+        <td>${adHucre}</td>
+        <td>${snHucre}</td>
         <td>
           <select class="ozel-sel ${ozelSec!==''?'aktif':''}" data-ozel-dk="${esc(dkKey)}">
             <option value="" ${ozelSec===''?'selected':''}>Sınıf ayarı (${ay.ekDk?('+'+ay.ekDk+' dk'):'0 dk'})</option>
@@ -5057,8 +5130,9 @@ if(!window.__KLV_ART)KBL.baslat();
         <td>${b.hata}</td>
         <td>${b.netC}</td>
         <td><b style="font-size:1.1rem;color:#0f766e">${b.puan}</b></td>
-        <td>
+        <td style="white-space:nowrap">
           <button class="btn small ghost" data-pdf-dl="${r.id}">📥 PDF İndir</button>
+          <button class="btn small ghost" data-del-row="${r.id}" title="Bu öğrenciyi listeden sil" style="padding:.25rem .45rem;color:#b91c1c">🗑️</button>
         </td>
       </tr>`;
     }).join('');
@@ -5066,6 +5140,57 @@ if(!window.__KLV_ART)KBL.baslat();
 
   window.sinavTabloBagla = function(T, body, res){
     if(!body) return;
+    body.querySelectorAll('[data-edit-stu]').forEach(b => {
+      b.onclick = () => {
+        window._duzenlenenId = b.dataset.editStu;
+        window.sinavTabloSadeceGuncelle(T);
+        setTimeout(() => {
+          const inp = document.getElementById('edtAd_' + b.dataset.editStu);
+          if(inp){ inp.focus(); inp.select(); }
+        }, 30);
+      };
+    });
+    body.querySelectorAll('[data-cancel-edit]').forEach(b => {
+      b.onclick = () => {
+        window._duzenlenenId = null;
+        window.sinavTabloSadeceGuncelle(T);
+      };
+    });
+    body.querySelectorAll('[data-save-edit]').forEach(b => {
+      b.onclick = () => {
+        const id = b.dataset.saveEdit;
+        const adEl = document.getElementById('edtAd_' + id);
+        const snEl = document.getElementById('edtSn_' + id);
+        const yeniAd = (adEl ? adEl.value : '').trim();
+        const yeniSn = (snEl ? snEl.value : '').trim();
+        if(!yeniAd) return;
+        const all = S.get('sinavSonuc', []) || [];
+        const rec = all.find(x => String(x.id) === String(id));
+        if(rec){
+          rec.ad = yeniAd;
+          rec.sn = yeniSn;
+          S.set('sinavSonuc', all);
+        }
+        window._duzenlenenId = null;
+        window.sinavTabloSadeceGuncelle(T);
+        const m = document.getElementById('snMsg');
+        if(m) m.textContent = `✅ Öğrenci bilgisi güncellendi: ${yeniAd} (${yeniSn || '—'})`;
+      };
+    });
+    body.querySelectorAll('[data-del-row]').forEach(b => {
+      b.onclick = () => {
+        if(b.dataset.ok === '1'){
+          const id = b.dataset.delRow;
+          const all = (S.get('sinavSonuc', []) || []).filter(x => String(x.id) !== String(id));
+          S.set('sinavSonuc', all);
+          window.sinavTabloSadeceGuncelle(T);
+          return;
+        }
+        b.dataset.ok = '1';
+        b.textContent = 'Sil?';
+        setTimeout(() => { if(document.body.contains(b)){ b.dataset.ok = '0'; b.textContent = '🗑️'; } }, 3000);
+      };
+    });
     body.querySelectorAll('[data-ozel-dk]').forEach(sel => {
       sel.onchange = () => {
         const ozel = S.get('telafiOzel', {}) || {};
@@ -5304,11 +5429,11 @@ if(!window.__KLV_ART)KBL.baslat();
 <script>
 if('caches' in window){
   caches.keys().then(function(ks){
-    ks.forEach(function(k){ if(k !== 'klv-ogretmen-v9') caches.delete(k); });
+    ks.forEach(function(k){ if(k !== 'klv-ogretmen-v10') caches.delete(k); });
   }).catch(function(){});
 }
 if('serviceWorker' in navigator && location.protocol.indexOf('http')===0){
-  navigator.serviceWorker.register('sw.js?v=9', {updateViaCache:'none'}).then(function(reg){
+  navigator.serviceWorker.register('sw.js?v=10', {updateViaCache:'none'}).then(function(reg){
     try{ reg.update(); }catch(e){}
   }).catch(function(){});
 }
